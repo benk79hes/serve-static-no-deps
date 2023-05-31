@@ -1,0 +1,11 @@
+{
+  "name": "serve-static-no-deps",
+  "version": "0.0.1",
+  "description": "Serve static files for root or sub-folder without dependecies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
