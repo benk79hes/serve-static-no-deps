@@ -25,17 +25,19 @@ const MIME_TYPES = {
 module.exports = function(root, urlFolder="", defaultIndex="index.html") {
     return async function(req, res, next) {
         
-		let urlPath = urlFolder + '/';
+		let urlPath = '/' + urlFolder + (urlFolder ? '/' : '');
+		console.log('urlPath', urlPath);
 		
         if (req.url.indexOf(urlPath) !== 0) {
+            console.log('req.url', req.url);
             return next();
         }
 
-        const localUrl = req.url.substr(urlPath.length + 1);
+        const localUrl = req.url.substr(urlPath.length);
 		console.log(localUrl);
         
         let filePath = null;
-        if (localUrl.endsWith("/")) {
+        if (localUrl.endsWith("/") || ! localUrl) {
             filePath = path.join(root, localUrl, defaultIndex)
         }
         else {
